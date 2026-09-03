@@ -8,11 +8,85 @@
 </head>
 <body>
   <div class="game-container">
-    <canvas id="gameCanvas" width="800" height="500"></canvas>
+    <!-- Controls Toolbar -->
+    <div class="controls-bar">
+      <button id="openMenuBtn" class="action-btn">SETTINGS</button>
+      <div class="game-status-badge">
+        <span id="statusMode">2 PLAYER</span> &bull;
+        <span id="statusSpeed">SPEED: NORMAL</span>
+      </div>
+      <div class="toolbar-actions">
+        <button id="soundToggleBtn" class="action-btn">SOUND: ON</button>
+        <button id="fullscreenBtn" class="action-btn">FULLSCREEN</button>
+        <button id="pauseBtn" class="action-btn">PAUSE</button>
+      </div>
+    </div>
 
-    <div id="gameOverScreen" class="game-over-screen hidden">
-      <h2 id="winnerText"></h2>
-      <button id="restartBtn">Restart</button>
+    <!-- Canvas and Overlay Container -->
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="800" height="500"></canvas>
+
+      <!-- Main Menu Overlay -->
+      <div id="mainMenu" class="main-menu-overlay">
+        <div class="menu-card">
+          <h1 class="menu-title">PONG</h1>
+
+          <!-- Game Mode Selection -->
+          <div class="menu-group">
+            <span class="menu-label">GAME MODE</span>
+            <div class="menu-btn-group">
+              <button id="menuMode2P" class="menu-btn active">2 PLAYER</button>
+              <button id="menuModeAI" class="menu-btn">VS AI</button>
+            </div>
+          </div>
+
+          <!-- Settings Section -->
+          <div class="menu-settings">
+            <div class="menu-settings-title">SETTINGS</div>
+
+            <!-- Ball Speed -->
+            <div class="setting-item">
+              <span class="setting-label">Ball Speed:</span>
+              <div class="menu-btn-group">
+                <button id="menuSpeedSlow" class="menu-btn">Slow</button>
+                <button id="menuSpeedNormal" class="menu-btn active">Normal</button>
+                <button id="menuSpeedFast" class="menu-btn">Fast</button>
+              </div>
+            </div>
+
+            <!-- AI Difficulty (only relevant in VS AI mode) -->
+            <div id="menuDiffGroup" class="setting-item hidden">
+              <span class="setting-label">AI Difficulty:</span>
+              <div class="menu-btn-group">
+                <button id="menuDiffEasy" class="menu-btn">Easy</button>
+                <button id="menuDiffNormal" class="menu-btn active">Normal</button>
+                <button id="menuDiffHard" class="menu-btn">Hard</button>
+              </div>
+            </div>
+
+            <!-- Sound Setting -->
+            <div class="setting-item">
+              <span class="setting-label">Sound:</span>
+              <div class="menu-btn-group">
+                <button id="menuSoundOn" class="menu-btn active">On</button>
+                <button id="menuSoundOff" class="menu-btn">Off</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Start Game Button -->
+          <button id="startGameBtn" class="primary-btn">START GAME</button>
+        </div>
+      </div>
+
+      <!-- Game Over Screen -->
+      <div id="gameOverScreen" class="game-over-screen hidden">
+        <h2 id="winnerText"></h2>
+        <div class="game-over-actions">
+          <button id="restartBtn" class="primary-btn">Play Again</button>
+          <button id="gameOverMenuBtn" class="secondary-btn">Main Menu</button>
+        </div>
+      </div>
     </div>
   </div>
 
